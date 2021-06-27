@@ -1,16 +1,19 @@
+# Important
+Any new updates/improvements will not be pushed here. This is created on adhoc basis.
+
 # TradingView Webhook for Alerts
-This webhook can propagate a TradingView alert to a Telegram channel or chat, and call multiple phone numbers via Twilio.
-This is created on adhoc basis for personal use.
+This webhook can propagate a TradingView alert to Telegram channels or chats, and call multiple phone numbers via Twilio.
+
 
 # How It Works
 Depending on the TradingView subscription plan, TradingView may allow users to enter a webhook that will be triggered when an alert is hit.
-A HTTP/HTTPS POST request will be sent to the webhook and the body of the request contains the alert message that the user specified when setting the alert.
+A HTTP/HTTPS POST request will be sent to the webhook and the body of the request contains the alert message that the user specifies when setting the alert.
 
 This webhook checks for specific substrings in the TradingView alert message to decide which number to call when the alert is hit. (See below for example)
 
 # Things To Configure Before Use
 In `telegram/telegram-helpers.js`:
-- Enter the IDs of the Telegram chats that you want the alert to be sent to in `chatIds` array.
+- Enter the IDs of the Telegram chats/channels that you want the alert to be sent to in `chatIds` array.
 - Set your Telegram bot token as the `botToken` variable.
 
 In `twilio/twilio-helpers.js`:
@@ -50,4 +53,4 @@ and the call to a number of `NAME_1` fails, then all the backup numbers that cor
 Enter your Twilio authentication information in the `authInfo` object.
 
 
-**Note: The name that corresponds to the numbers can be any string, need not be in the "NAME_number" format. Also, phone numbers should include coutnry code. See Twilio API documentation for more information.**
+**Note: The name that corresponds to the numbers can be any string, need not be in the "NAME_number" format. Also, phone numbers should include country code. See Twilio API documentation for more information.**
